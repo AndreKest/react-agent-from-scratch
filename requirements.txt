@@ -8,3 +8,7 @@ torchvision=0.20.0+cu118
 transformers
 
 jupyter
+
+# Tools
+duckduckgo-search
+Wikipedia-API
