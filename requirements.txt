@@ -1,0 +1,10 @@
+numpy
+matplotlib
+
+torch=2.5.0+cu118
+torchaudio=2.5.0+cu118
+torchvision=0.20.0+cu118
+
+transformers
+
+jupyter
