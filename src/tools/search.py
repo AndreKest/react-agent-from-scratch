@@ -44,7 +44,7 @@ def wiki_search(query: str, logger: logging.LogRecord) -> Optional[str]:
     
 
 
-def ddgs_search(query: str) -> Optional[str]:
+def ddgs_search(query: str, logger: logging.LogRecord) -> Optional[str]:
     """
     Search DuckDuckGo for a given query and return the first result.
 
@@ -55,20 +55,26 @@ def ddgs_search(query: str) -> Optional[str]:
         Optional[str]:  Return a JSON object containing the query, title, and abstract, or None if no result is found.
     """
     try:
+        logger.info(f"Searching DuckDuckGo for: {query}")
         responses = DDGS().text(query, max_results=5)
         
         results = []
-        for response in responses:
-            print(response.keys())
-            results.append({
-                "query": query,
-                "title": response['title'],
-                "href": response['href'],
-                "body": response['body']
-            })
-        
-        return json.dumps(results, ensure_ascii=False, indent=2)
+        if responses:
+            for response in responses:
+                print(response.keys())
+                results.append({
+                    "query": query,
+                    "title": response['title'],
+                    "href": response['href'],
+                    "body": response['body']
+                })
+
+            logger.info(f"Successfully retrieved summary for {len(results)} sites: {query}")
+            return json.dumps(results, ensure_ascii=False, indent=2)
+        else:
+            logger.info(f"No result found for: {query}")
+            return None
 
     except Exception as e:
-        print(f"Request to DuckDuckGo failed: {e}")
+        logger.exception(f"An error occurred while processing the DuckDuckGo search for: {query}")
         return None

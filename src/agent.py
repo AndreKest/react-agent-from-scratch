@@ -1,8 +1,258 @@
-from utils.logger import logger
+from enum import Enum, auto
+from typing import Union, Callable, List, Dict
+import json
+import logging
+
+from pydantic import BaseModel, Field
+
+from llm.llm import LargeLanguageModel
+from utils.logger import logger 
 from tools.search import ddgs_search, wiki_search
+from tools.calc import add, multiplay
+from utils.io import read_file, write_to_file
+
+model_ids = {
+    "Llama3.1:8B": "meta-llama/Llama-3.1-8B-Instruct",
+    "Llama3.2:1B": "meta-llama/Llama-3.2-1B-Instruct",
+    "Llama3.2:3B": "meta-llama/Llama-3.2-3B-Instruct",
+}
+
+Observation = Union[str, Exception]
+
+PROMPT_TEMPLATE_PATH = "./data/input/react_prompt1.txt"
+OUTPUT_TRACE_PATH = "./data/output/trace.txt"
+
+
+class Name(Enum):
+    """ Enumeration for available tools. """
+    WIKIPEDIA = auto()
+    DUCKDUCKGO = auto()
+    NONE = auto()
+
+    def __str__(self) -> str:
+        return self.name.lower()
+
+class Message(BaseModel):
+    """ Represents a message with a sender role and content. """
+    role: str = Field(..., title="The role of the message sender.")
+    content: str = Field(..., title="The content of the message.")
+
+class Choice(BaseModel):
+    """ Represents a choice of tool and the reason for choosing it. """
+    name: Name = Field(..., title="The name of the tool.")
+    message: Message = Field(..., title="The reason for choosing the tool.")
+
+
+class Tool:
+    """ Tool class for executing tool with name and callable function. """
+    def __init__(self, name: Name, func: Callable[[str], str]):
+        self.name = name
+        self.func = func
+
+    def use(self, query: str) -> Observation:
+        """ Execute the tool function with the given query. """
+        try:
+            return self.func(query)
+        except Exception as e:
+            logger.error(f"Error executing {self.name}: {e}")
+            return str(e)
+
+
+class ReActAgent:
+    """ ReAct agent class for managing tools and messages. """
+    def __init__(self, model, logger):
+        self.model = model
+
+        self.tools: Dict[Name, Tool] = {}
+        self.messages: List[Message] = []
+
+        self.max_iterations = 5
+        self.current_iteration = 0
+
+        self.logger = logger
+
+        self.query = ""
+        self.prompt = self.load_prompt()
+
+    
+    def load_prompt(self) -> str:
+        """ Load the prompt from the specified file. """
+        return read_file(PROMPT_TEMPLATE_PATH, self.logger)
+        
+    def register(self, name: Name, func: Callable[[str], str]) -> None:
+        """
+        Registers a tool to the agent.
+
+        Args:
+            name (Name): The name of the tool.
+            func (Callable[[str], str]): The function associated with the tool.
+            description (str): The description of the tool.
+        """
+        self.tools[name] = Tool(name, func)
+
+    def trace(self, role: str, content: str) -> None:
+        """ Logs the message with the specified role and content and writes to file. """
+        if role != "system":
+            self.messages.append(Message(role=role, content=content))
+        write_to_file(path=OUTPUT_TRACE_PATH, content=f"{role}: {content}\n", logger=self.logger)
+
+    def get_history(self) -> str:
+        """ Return the history of messages as a string. """
+        return "\n".join([f"{msg.role}: {msg.content}" for msg in self.messages])
+
+    def think(self) -> None:
+        """
+        Run the agent with the given query. 
+        - Process the current query
+        - Decide the action based on the response
+        - Execute the action
+        - Write the trace/observation
+        """
+        self.current_iteration += 1
+        self.logger.info(f"Starting iteration {self.current_iteration}")
+        write_to_file(path=OUTPUT_TRACE_PATH, content=f"\n{'='*50}\nIteration {self.current_iteration}\n{'='*50}\n", logger=self.logger)
+        
+        # Check if the maximum number of iterations has been reached
+        if self.current_iteration > self.max_iterations:
+            self.logger.info("Maximum number of iterations reached. Stopping the process.")
+            self.trace("assistant", "I'm sorry, but I couldn't find a satisfactory answer within the allowed number of iterations. Here's what I know so far: " + self.get_history())
+            return
+        
+        # Create prompt with the current information
+        # Tools with descriptions
+        self.prompt = self.prompt.format(
+            query=self.query,
+            history=self.get_history(),
+            tools=", ".join([str(tool.name) for tool in self.tools.values()])
+        )
+
+        # Ask the model with the prompt
+        response = self.ask_model(self.prompt)
+        self.logger.info(f"Thinking => {response}")
+        self.trace("assistant", f"Thought: {response}")
+
+        # Decide the action based on the response
+        self.decide(response)
+        
+
+    def decide(self, response: str) -> None:
+        """
+        Processes the agent's response, deciding actions or final answers.
+
+        Args:
+            response (str): The response generated by the model.
+        """
+        try:
+            cleaned_response = response.strip().strip('`').strip()
+            if cleaned_response.startswith('json'):
+                cleaned_response = cleaned_response[4:].strip()
+            
+            parsed_response = json.loads(cleaned_response)
+
+            if 'action' in parsed_response:
+                action = parsed_response['action']
+                tool_name = Name[action["name"].upper()]
+                if tool_name == Name.NONE:
+                    self.logger.info("No action needed. Proceesing to final answer.")
+                    self.think()
+                else:
+                    self.trace("assistant", f"Action: Using {tool_name} tool")
+                    self.act(tool_name, action.get("input", self.query))
+            elif 'answer' in parsed_response:
+                self.trace('asstiant', f"Final Answer: {parsed_response['answer']}")
+            else:
+                raise ValueError("Invalid response format.")
+        except json.JSONDecodeError as e:
+            self.logger.error(f"Failed to parse response: {response}. Error {str(e)}")
+            self.trace("assistant", "I encountered an error in processing. Let me try again.")
+            self.think()
+        except Exception as e:
+            logger.error(f"Error processing response: {str(e)}")
+            self.trace("assistant", "I encountered an unexpected error. Let me try a different approach.")
+            self.think()
+
+
+    def act(self, tool_name: Name, query: str) -> str:
+        """
+        Execute the agent with the given query. 
+        - Execute the tool tool_name with the query
+
+        Args:
+            tool_name (Name): The name of the tool to use.
+            query (str): The query to process with the tool.
+        """
+        tool = self.tools.get(tool_name)
+        if tool:
+            result = tool.use(query)
+            observation = F"Observation from {tool_name}: {result}"
+            self.trace("system", observation)
+            self.messages.append(Message(role="system", content=observation))  # Add observation to message history
+            self.think()
+        else:
+            self.logger.error(f"No tool registered for choise: {tool_name}")
+            self.think()
+
+
+    def execute(self, query: str) -> str:
+        """
+        Executes the agent's query-processing workflow.
+
+        Args:
+            query (str): The query to be processed.
+
+        Returns:
+            str: The final answer or last recorded message content.
+        """
+        self.query = query
+        self.trace(role="user", content=query)
+        self.think()
+
+        return self.messages[-1].content    # Return final answer or last recorded message content
+        
+    def ask_model(self, prompt: str) -> str:
+        """
+        Ask the model with the given prompt.
+        
+        Args:
+            prompt (str): The prompt to ask the model.
+
+        Returns:
+            str: The response from the model.
+        """
+        response = self.model.predict(prompt)
+        response = response[0]['generated_text']
+        return str(response) if response is not None else "No response from Model"
+
+        
+
+
+def run(query: str, logger: logging.LogRecord) -> str:
+    # Load model
+    model = LargeLanguageModel(model_ids["Llama3.2:3B"])
+
+    agent = ReActAgent(model=model, logger=logger)
+
+    # register tools
+    agent.register(Name.WIKIPEDIA, wiki_search)
+    agent.register(Name.DUCKDUCKGO, ddgs_search)
+    # agent.register(Name.NONE, None, "No action needed.")
+
+    answer = agent.execute(query)
+
+
+
+
 
 if __name__ == "__main__":
     queries = ["Geoffrey Hinton", "Hugging Face"]
+    
+    query = "Tell me something about Turing Test?"
+    query = "What is 5 multiplied by 100?"
+    
+    run(query=query, logger=logger)
+
+    # agent = ReActAgent(model=None, tools={}, prompt="", logger=logger)
+    # agent.think()
 
 
     # for query in queries:
@@ -13,10 +263,10 @@ if __name__ == "__main__":
     #     else:
     #         print(f"No result found for: {query}\n")
 
-    for query in queries:
-        result = ddgs_search(query)
+    # for query in queries:
+    #     result = ddgs_search(query, logger=logger)
         
-        if result:
-            print(f"JSON result for {query}:\n{result}")
-        else:
-            print(f"No result found for: {query}\n")
+    #     if result:
+    #         print(f"JSON result for {query}:\n{result}")
+    #     else:
+    #         print(f"No result found for: {query}\n")
