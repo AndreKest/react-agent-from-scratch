@@ -56,7 +56,7 @@ def ddgs_search(query: str, logger: logging.LogRecord) -> Optional[str]:
     """
     try:
         logger.info(f"Searching DuckDuckGo for: {query}")
-        responses = DDGS().text(query, max_results=5)
+        responses = DDGS().text(query, max_results=1)
         
         results = []
         if responses:
@@ -70,7 +70,8 @@ def ddgs_search(query: str, logger: logging.LogRecord) -> Optional[str]:
                 })
 
             logger.info(f"Successfully retrieved summary for {len(results)} sites: {query}")
-            return json.dumps(results, ensure_ascii=False, indent=2)
+            return results[0]['body']
+            # return json.dumps(results, ensure_ascii=False, indent=2)['body']
         else:
             logger.info(f"No result found for: {query}")
             return None

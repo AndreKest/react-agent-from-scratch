@@ -34,4 +34,11 @@ def write_to_file(path: str, content: str, logger: logging.LogRecord) -> None:
         content (str): The content to write to the file.
         logger (logging.LogRecord): The logger to use for logging.
     """
-    pass
+    try:
+        with open(path, 'a', encoding='utf-8') as file:
+            file.write(content)
+        logger.info(f"Content written to file: {path}")
+    except FileNotFoundError:
+        logger.error(f"File not found: {path}")
+    except Exception as e:
+        logger.error(f"Error writing to file '{path}: {e}")
