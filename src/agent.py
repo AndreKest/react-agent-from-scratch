@@ -73,7 +73,7 @@ class ReActAgent:
         self.tools: Dict[Name, Tool] = {}
         self.messages: List[Message] = []
 
-        self.max_iterations = 5
+        self.max_iterations = 10
         self.current_iteration = 0
 
         self.logger = logger
@@ -136,9 +136,11 @@ class ReActAgent:
         if "[Final Answer]" in response:
             print("Final Answer")
             str_finalAnswer = re.search(r"\[Final Answer\](.*)", response).group(1)
-            print("Final Answer: ", str_finalAnswer)
-            self.messages.append(Message(role="system", content=str_finalAnswer))
 
+            self.logger.info(f"Final Answer => {str_finalAnswer}")
+            self.trace("assistant", f"Final Answer: {str_finalAnswer}")
+            self.messages.append(Message(role="assistant", content=f"Final Answer: {str_finalAnswer}"))
+            
             return "", True
 
         else:
@@ -171,6 +173,13 @@ class ReActAgent:
             else:
                 raise Exception("No [Action] found in response. Try again.")
             
+            # Remove [ if exists at the beginning
+            if str_action.startswith("["):
+                str_action = str_action[1:]
+            # Remove ] if exists at the end
+            if str_action.endswith("]"):
+                str_action = str_action[:-1]
+
             str_action = str_action.lstrip().rstrip()
 
             self.logger.info(f"Action => {str_action}")
@@ -290,33 +299,12 @@ def run(query: str, logger: logging.LogRecord) -> str:
 
 
 
-if __name__ == "__main__":
-    queries = ["Geoffrey Hinton", "Hugging Face"]
-    
-    query = "When was Python first released? Add the age of Barack Obama to the year."
-
+if __name__ == "__main__":    
+    # query = "When was Python first released? Add the age of Barack Obama to the year."
     # query = "What is 510 + 1000?" TODO: Calculate the right answer but do not generate the [Final Answer]
-    
-    query = "What is 5 + 5 multiplied by 3?"
+    query = "What is the capital of France?"
+    query = "Calculate 10 + 10"
+    query = "Calculate 20 - 10" # TODO: Calculate the right answer but do not generate the [Final Answer] token (maybe try bigger model) Not fine-tuned on this react task
+    query = "Who is the president of Germany?"
 
     run(query=query, logger=logger)
-
-    # agent = ReActAgent(model=None, tools={}, prompt="", logger=logger)
-    # agent.think()
-
-
-    # for query in queries:
-    #     result = wiki_search(query, logger=logger)
-        
-    #     if result:
-    #         print(f"JSON result for {query}:\n{result}")
-    #     else:
-    #         print(f"No result found for: {query}\n")
-
-    # for query in queries:
-    #     result = ddgs_search(query, logger=logger)
-        
-    #     if result:
-    #         print(f"JSON result for {query}:\n{result}")
-    #     else:
-    #         print(f"No result found for: {query}\n")
