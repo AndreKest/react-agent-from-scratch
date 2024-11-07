@@ -73,7 +73,7 @@ class ReActAgent:
         self.tools: Dict[Name, Tool] = {}
         self.messages: List[Message] = []
 
-        self.max_iterations = 10
+        self.max_iterations = 20
         self.current_iteration = 0
 
         self.logger = logger
@@ -210,7 +210,7 @@ class ReActAgent:
 
             # TODO: Error handling
             if observation is None:
-                observation = "Error - No site with Wikipedia API and the search query is found."
+                observation = f"Error - No site with Wikipedia API and the search query is found. Try another search tool or query."
                 self.trace("tool", f"Error: {observation}")
 
             self.logger.info(f"Observation => {observation}")
@@ -300,11 +300,12 @@ def run(query: str, logger: logging.LogRecord) -> str:
 
 
 if __name__ == "__main__":    
-    # query = "When was Python first released? Add the age of Barack Obama to the year."
-    # query = "What is 510 + 1000?" TODO: Calculate the right answer but do not generate the [Final Answer]
-    query = "What is the capital of France?"
-    query = "Calculate 10 + 10"
-    query = "Calculate 20 - 10" # TODO: Calculate the right answer but do not generate the [Final Answer] token (maybe try bigger model) Not fine-tuned on this react task
-    query = "Who is the president of Germany?"
+    # query = "When was Python first released? Add 2000 to the release year."
+    # query = "What is the capital of France?"
+    # query = "Calculate 10 + 10"
+    # query = "Calculate 20 - 10"
+    # query = "When was the release of the movie Iron Man?"
+    # query = "Who is the president of Germany?"
+    query = "Who is the president of the United States?"
 
     run(query=query, logger=logger)
