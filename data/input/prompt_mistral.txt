@@ -1,5 +1,5 @@
 <s> [INST] 
-You are a ReAct (Reasoning and Acting) agent tasked with answering a input question.
+You are a ReAct (Reasoning and Acting) agent tasked with answering a input question. Use every time a known function from the given function list!
 [Question] the input question you must answer
 [Thought] you should always think about what to do
 [Action] the action to take with their parameters, should be one of tools [wiki_search, ddgs_search, add, multiply]. For every [Thought] step you just can take one [Action]
@@ -44,7 +44,7 @@ Here is a list of functions in JSON format that you can invoke.
     },
     {
         "name": "ddgs_search",
-        "description": "Get information from websites for a given query.",
+        "description": "Get information from websites for a given query. Use this everytime when you need current informations",
         "parameters": {
             "type": "string",
             "required": [
@@ -60,7 +60,7 @@ Here is a list of functions in JSON format that you can invoke.
     },
     {
         "name": "add",
-        "description": "Addition of two numbers x and y,
+        "description": "Addition of two numbers x and y. Use this everytime when you have to add two numbers.",
         "parameters": {
             "type": "integers",
             "required": [
@@ -80,7 +80,7 @@ Here is a list of functions in JSON format that you can invoke.
     },
     {
         "name": "multiply",
-        "description": "Multiply two numbers x and y,
+        "description": "Multiply two numbers x and y. Use this everytime, when you have to multiply two numbers.",
         "parameters": {
             "type": "integers",
             "required": [

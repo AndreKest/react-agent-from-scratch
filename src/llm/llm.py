@@ -4,13 +4,16 @@ from langchain_huggingface import HuggingFacePipeline, ChatHuggingFace
 from transformers import BitsAndBytesConfig
 
 model_ids = {
-    "Llama3.1:8B": "meta-llama/Llama-3.1-8B-Instruct",
-    "Llama3.1:70B": "meta-llama/Llama-3.1-70B-Instruct",
-    "Llama3.2:1B": "meta-llama/Llama-3.2-1B-Instruct",
-    "Llama3.2:3B": "meta-llama/Llama-3.2-3B-Instruct",
-    "Mixtral-8x7B": "mistralai/Mixtral-8x7B-Instruct-v0.1",
-    "Mixtral-8x22B": "mistralai/Mixtral-8x22B-Instruct-v0.1",
-
+    "Llama3.1:8B": "meta-llama/Llama-3.1-8B-Instruct",          # 8.03 B
+    "Llama3.1:70B": "meta-llama/Llama-3.1-70B-Instruct",        # 70.6 B
+    "Llama3.2:1B": "meta-llama/Llama-3.2-1B-Instruct",          # 1.24 B
+    "Llama3.2:3B": "meta-llama/Llama-3.2-3B-Instruct",          # 3.21 B
+    "Mixtral-8x7B": "mistralai/Mixtral-8x7B-Instruct-v0.1",     # 46.7 B
+    "Mixtral-8x22B": "mistralai/Mixtral-8x22B-Instruct-v0.1",   # 141 B
+    "Mistral-7B": "mistralai/Mistral-7B-Instruct-v0.3",         # 7.25 B
+    "Mistral-Small": "Mistral-Small-Instruct-2409",             # 22.2 B
+    "Mistral-Large": "Mistral-Large-Instruct-2407",             # 123 B
+    "Mistral-Nemo": "mistralai/Mistral-Nemo-Instruct-2407",     # 12.2 B
 }
 
 class LargeLanguageModel:

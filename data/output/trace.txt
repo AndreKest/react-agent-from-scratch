@@ -1,13 +1,16 @@
-user: Calculate 10 + 10
+
+==================================================
+Start
+==================================================
+user: In which year was the fall of the Berlin Wall? Add 10 to the year.
 
 ==================================================
 Iteration 1
 ==================================================
-assistant: Thought: : I can use the 'add' function to solve this problem
-assistant: Action: add(x=10, y=10)
-user: Observation: 20
+assistant: Thought: ] I need to find out when the Berlin Wall fell first.
+assistant: Action: ] ddgs_search(query="Berlin Wall fell")
+assistant: I encountered an error that the action could not be executed. Try it again and beware of the response structure: unmatched ']' (<string>, line 1)
 
 ==================================================
 Iteration 2
 ==================================================
-assistant: Final Answer: : 20

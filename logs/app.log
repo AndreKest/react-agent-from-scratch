@@ -1,15 +1,13 @@
-2024-11-07 09:41:20,644 [INFO] [modeling] [/home/u9cce/anaconda3/envs/agents/lib/python3.11/site-packages/accelerate/utils/modeling.py]: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-2024-11-07 09:41:26,196 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
-2024-11-07 09:41:26,196 [INFO] [agent] [/src/agent.py]: Starting iteration 1
-2024-11-07 09:41:26,196 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
-2024-11-07 09:41:27,920 [INFO] [agent] [/src/agent.py]: Thinking => : I can use the 'add' function to solve this problem
-2024-11-07 09:41:27,920 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
-2024-11-07 09:41:27,920 [INFO] [agent] [/src/agent.py]: Action => add(x=10, y=10)
-2024-11-07 09:41:27,920 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
-2024-11-07 09:41:27,921 [INFO] [calc] [/src/tools/calc.py]: Adding 10 and 10
-2024-11-07 09:41:27,921 [INFO] [agent] [/src/agent.py]: Observation => 20
-2024-11-07 09:41:27,921 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
-2024-11-07 09:41:27,921 [INFO] [agent] [/src/agent.py]: Starting iteration 2
-2024-11-07 09:41:27,921 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
-2024-11-07 09:41:28,902 [INFO] [agent] [/src/agent.py]: Final Answer => : 20
-2024-11-07 09:41:28,902 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 10:08:32,455 [INFO] [modeling] [/home/u9cce/anaconda3/envs/agents/lib/python3.11/site-packages/accelerate/utils/modeling.py]: We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+2024-11-07 10:09:34,235 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 10:09:34,235 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 10:09:34,235 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 10:09:34,235 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 10:09:36,339 [INFO] [agent] [/src/agent.py]: Thinking => ] I need to find out when the Berlin Wall fell first.
+2024-11-07 10:09:36,339 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 10:09:36,339 [INFO] [agent] [/src/agent.py]: Action => ] ddgs_search(query="Berlin Wall fell")
+2024-11-07 10:09:36,339 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 10:09:36,339 [ERROR] [agent] [/src/agent.py]: Error executing action: unmatched ']' (<string>, line 1)
+2024-11-07 10:09:36,339 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 10:09:36,340 [INFO] [agent] [/src/agent.py]: Starting iteration 2
+2024-11-07 10:09:36,340 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt

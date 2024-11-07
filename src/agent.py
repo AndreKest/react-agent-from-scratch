@@ -27,7 +27,8 @@ model_ids = {
 
 }
 
-model_id = "Mistral-7B"
+# model_id = "Mistral-7B"
+model_id = "Mistral-Nemo"
 
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
 PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
@@ -124,14 +125,6 @@ class ReActAgent:
         - Execute the action
         - Write the trace/observation
         """
-        # # Check if the maximum number of iterations has been reached
-        # if self.current_iteration > self.max_iterations:
-        #     self.logger.info("Maximum number of iterations reached. Stopping the process.")
-        #     self.trace("assistant", "I'm sorry, but I couldn't find a satisfactory answer within the allowed number of iterations. Here's what I know so far: " + self.get_history())
-        #     return
-        
-        # Create the new prompt based on the history
-        # self.prompt_r = self.prompt.replace("{input}", self.query)
         self.prompt_r = self.prompt.replace("{history}", self.get_history())
 
 
@@ -256,10 +249,11 @@ class ReActAgent:
         """
         # Set the input query
         self.query = query
+        write_to_file(path=OUTPUT_TRACE_PATH, content=f"\n{'='*50}\nStart\n{'='*50}\n", logger=self.logger)
         self.trace(role="user", content=query)
         
         # Reasoning and Acting Loop (ReAct Loop)
-        while self.current_iteration <= self.max_iterations:
+        while self.current_iteration < self.max_iterations:
             self.current_iteration += 1
             self.logger.info(f"Starting iteration {self.current_iteration}")
             write_to_file(path=OUTPUT_TRACE_PATH, content=f"\n{'='*50}\nIteration {self.current_iteration}\n{'='*50}\n", logger=self.logger)
@@ -321,10 +315,13 @@ def run(query: str, logger: logging.LogRecord) -> str:
 if __name__ == "__main__":    
     # query = "When was Python first released? Add 2000 to the release year."
     # query = "What is the capital of France?"
-    query = "Calculate 10 + 10"
+    # query = "Calculate 10 + 10"
     # query = "Calculate 20 - 10"
     # query = "When was the release of the movie Iron Man?"
     # query = "Who is the president of Germany?"
     # query = "Who is the president of the United States?"
+    # query = "200 * 10"
+    # query = "100 + -10"
+    query = "In which year was the fall of the Berlin Wall? Add 10 to the year."
 
     run(query=query, logger=logger)
