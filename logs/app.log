@@ -29,3 +29,151 @@
 2024-11-07 13:48:19,933 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
 2024-11-07 13:48:19,933 [INFO] [agent] [/src/agent.py]: Starting iteration 1
 2024-11-07 13:48:19,933 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:34:35,616 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:34:35,616 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:34:35,616 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 14:34:35,617 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:35:05,181 [INFO] [agent] [/src/agent.py]: Final Answer => ] The final answer is 1999.
+2024-11-07 14:35:05,181 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:02,007 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:02,007 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:02,007 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 14:41:02,007 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:12,050 [INFO] [agent] [/src/agent.py]: Thinking => ] I need to add two numbers. I will use the "add" function for this.
+2024-11-07 14:41:12,051 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:12,051 [INFO] [agent] [/src/agent.py]: Action => ] add(x=10, y=10)
+2024-11-07 14:41:12,051 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:12,051 [ERROR] [agent] [/src/agent.py]: Error executing action: unmatched ']' (<string>, line 1)
+2024-11-07 14:41:12,051 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:12,051 [INFO] [agent] [/src/agent.py]: Starting iteration 2
+2024-11-07 14:41:12,051 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:41:19,296 [INFO] [agent] [/src/agent.py]: Final Answer => : ] 20
+2024-11-07 14:41:19,297 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:09,341 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:09,341 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:09,341 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 14:48:09,341 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:19,840 [INFO] [agent] [/src/agent.py]: Thinking => ] I need to add two numbers. I will use the "add" function for this.
+2024-11-07 14:48:19,840 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:19,841 [INFO] [agent] [/src/agent.py]: Action => ] add(x=10, y=10)
+2024-11-07 14:48:19,841 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:19,841 [ERROR] [agent] [/src/agent.py]: Error executing action: unmatched ']' (<string>, line 1)
+2024-11-07 14:48:19,841 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:19,841 [INFO] [agent] [/src/agent.py]: Starting iteration 2
+2024-11-07 14:48:19,841 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:48:26,953 [INFO] [agent] [/src/agent.py]: Final Answer => : ] 20
+2024-11-07 14:48:26,953 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace.txt
+2024-11-07 14:56:25,415 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 14:56:25,415 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 14:56:25,415 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 14:56:25,415 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 14:56:35,337 [INFO] [agent] [/src/agent.py]: Thinking => ] I need to add two numbers. I will use the "add" function for this.
+2024-11-07 14:56:35,337 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 14:56:35,338 [INFO] [agent] [/src/agent.py]: Action => ] add(x=10, y=10)
+2024-11-07 14:56:35,338 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 14:56:35,338 [ERROR] [agent] [/src/agent.py]: Error executing action: unmatched ']' (<string>, line 1)
+2024-11-07 14:56:35,338 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 14:56:35,338 [INFO] [agent] [/src/agent.py]: Starting iteration 2
+2024-11-07 14:56:35,338 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 14:56:42,656 [INFO] [agent] [/src/agent.py]: Final Answer => : ] 20
+2024-11-07 14:56:42,656 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mixtral-8x7B.txt
+2024-11-07 15:06:31,726 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:31,726 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:31,726 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:06:31,726 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:37,885 [INFO] [agent] [/src/agent.py]: Final Answer => : The capital of France is Paris.
+2024-11-07 15:06:37,885 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:37,886 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:37,886 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:37,886 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:06:37,886 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:40,892 [INFO] [agent] [/src/agent.py]: Final Answer => : 20
+2024-11-07 15:06:40,893 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:40,893 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:40,893 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:40,893 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:06:40,893 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:44,374 [INFO] [agent] [/src/agent.py]: Final Answer => : 10
+2024-11-07 15:06:44,375 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:44,375 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:44,375 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:44,375 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:06:44,375 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:47,809 [INFO] [agent] [/src/agent.py]: Final Answer => : 2000
+2024-11-07 15:06:47,810 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:47,810 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:47,810 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:47,810 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:06:47,810 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:49,496 [INFO] [agent] [/src/agent.py]: Thinking => : I need to perform an addition operation.
+2024-11-07 15:06:49,496 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:49,496 [INFO] [agent] [/src/agent.py]: Action => add(x=100, y=-10)
+2024-11-07 15:06:49,496 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:49,496 [INFO] [calc] [/src/tools/calc.py]: Adding 100 and -10
+2024-11-07 15:06:49,496 [INFO] [agent] [/src/agent.py]: Observation => 90
+2024-11-07 15:06:49,496 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:49,496 [INFO] [agent] [/src/agent.py]: Starting iteration 2
+2024-11-07 15:06:49,497 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:50,534 [INFO] [agent] [/src/agent.py]: Final Answer => : 90
+2024-11-07 15:06:50,534 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:50,535 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:50,535 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:50,535 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:06:50,535 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:54,878 [INFO] [agent] [/src/agent.py]: Final Answer => : The release date of Iron Man was May 2, 2008.
+2024-11-07 15:06:54,878 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:54,878 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:54,879 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:54,879 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:06:54,879 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:56,694 [INFO] [agent] [/src/agent.py]: Thinking => : I should search for the current president of Germany.
+2024-11-07 15:06:56,695 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:56,695 [INFO] [agent] [/src/agent.py]: Action => ddgs_search(query="current president of Germany")
+2024-11-07 15:06:56,695 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:56,695 [INFO] [search] [/src/tools/search.py]: Searching DuckDuckGo for: current president of Germany
+2024-11-07 15:06:56,848 [INFO] [lib] [src/lib.rs]: response: https://duckduckgo.com/?q=current+president+of+Germany 200 18380
+2024-11-07 15:06:57,702 [INFO] [lib] [src/lib.rs]: response: https://links.duckduckgo.com/d.js?q=current+president+of+Germany&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-254491996595635674711632473239550063980&bing_market=wt-WT&ex=-1 200 34664
+2024-11-07 15:06:57,703 [INFO] [search] [/src/tools/search.py]: Successfully retrieved summary for 1 sites: current president of Germany
+2024-11-07 15:06:57,704 [INFO] [agent] [/src/agent.py]: Observation => The president of Germany, officially titled the Federal President of the Federal Republic of Germany (German: Bundespräsident der Bundesrepublik Deutschland), [2] is the head of state of Germany. The current officeholder is Frank-Walter Steinmeier who was elected on 12 February 2017 and re-elected on 13 February 2022. He is currently serving ...
+2024-11-07 15:06:57,704 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:06:57,704 [INFO] [agent] [/src/agent.py]: Starting iteration 2
+2024-11-07 15:06:57,704 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:02,613 [INFO] [agent] [/src/agent.py]: Final Answer => : The current president of Germany is Frank-Walter Steinmeier. He was elected on 12 February 2017 and re-elected on 13 February 2022. He is currently serving as the head of state of Germany.
+2024-11-07 15:07:02,613 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:02,613 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:02,613 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:02,614 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:07:02,614 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:07,586 [INFO] [agent] [/src/agent.py]: Final Answer => : The current president of the United States is [insert the name of the current president here].
+2024-11-07 15:07:07,586 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:07,587 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:07,587 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:07,587 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:07:07,587 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:09,347 [INFO] [agent] [/src/agent.py]: Thinking => : I should first find the release year of Python.
+2024-11-07 15:07:09,347 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:09,347 [INFO] [agent] [/src/agent.py]: Action => wiki_search(query="Python release year")
+2024-11-07 15:07:09,347 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:09,347 [INFO] [__init__] [/home/jovyan/.local/lib/python3.10/site-packages/wikipediaapi/__init__.py]: Wikipedia: language=en, user_agent: react-agent-from-scratch (kestler.andre.code@gmail.com) (Wikipedia-API/0.7.1; https://github.com/martin-majlis/Wikipedia-API/), extract_format=ExtractFormat.WIKI
+2024-11-07 15:07:09,348 [INFO] [search] [/src/tools/search.py]: Searching Wikipedia for: Python release year
+2024-11-07 15:07:09,348 [INFO] [__init__] [/home/jovyan/.local/lib/python3.10/site-packages/wikipediaapi/__init__.py]: Request URL: https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Python release year&inprop=protection|talkid|watched|watchers|visitingwatchers|notificationtimestamp|subjectid|url|readable|preload|displaytitle
+2024-11-07 15:07:09,556 [INFO] [search] [/src/tools/search.py]: No result found for: Python release year
+2024-11-07 15:07:09,557 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:09,557 [INFO] [agent] [/src/agent.py]: Observation => Error - No site with Wikipedia API and the search query is found. Try another search tool or query.
+2024-11-07 15:07:09,557 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:09,557 [INFO] [agent] [/src/agent.py]: Starting iteration 2
+2024-11-07 15:07:09,557 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:17,434 [INFO] [agent] [/src/agent.py]: Final Answer => : 1991 + 2000 = 2011 (Python was first released in 1991 and the user asked for the year when it was first released plus 2000)
+2024-11-07 15:07:17,434 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:17,434 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:17,434 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:17,434 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:07:17,434 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:24,800 [INFO] [agent] [/src/agent.py]: Final Answer => : 1999 (the year the Berlin Wall fell + 10)
+2024-11-07 15:07:24,800 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:24,801 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:24,801 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:24,801 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-07 15:07:24,801 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt
+2024-11-07 15:07:34,325 [INFO] [agent] [/src/agent.py]: Final Answer => : [Final Answer] The year Jonas Vingegaard was born is [year_found_by_ddgs_search] + 100.
+2024-11-07 15:07:34,326 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Mistral-7B.txt

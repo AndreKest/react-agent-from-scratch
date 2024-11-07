@@ -6,7 +6,7 @@ import regex as re
 from pydantic import BaseModel, Field
 
 from llm.llm import LargeLanguageModel
-from utils.logger import logger 
+from utils.logger import setup_logger
 from tools.search import ddgs_search, wiki_search
 from tools.calc import add, multiply
 from utils.io import read_file, write_to_file
@@ -20,7 +20,6 @@ import pudb
 
 # Set GPU device
 torch.cuda.set_device(2)
-
 
 
 model_ids = {
@@ -37,12 +36,13 @@ model_ids = {
 
 }
 
-# model_id = "Mistral-7B"
-model_id = "Mixtral-8x7B"
+model_id = "Mistral-7B"
+# model_id = "Mixtral-8x7B"
 
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
 PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
-OUTPUT_TRACE_PATH = "./data/output/trace.txt"
+OUTPUT_TRACE_PATH = f"./data/output/trace_{model_id}.txt"
+logger = setup_logger(log_filename=f"app_{model_id}.log")
 
 
 Observation = Union[str, Exception]
@@ -306,31 +306,40 @@ class ReActAgent:
        
 
 
-def run(query: str, logger: logging.LogRecord) -> str:
+def run(queries: [str], logger: logging.LogRecord) -> str:
     # Load model
     model = LargeLanguageModel(model_ids[model_id])
-    agent = ReActAgent(model=model, logger=logger)
 
-    # register tools
-    agent.register(Name.WIKIPEDIA, wiki_search)
-    agent.register(Name.ADD, add)
-    agent.register(Name.MULTIPLY, multiply)
-    # agent.register(Name.NONE, None, "No action needed.")
+    for query in queries:
+        # Create agent
+        agent = ReActAgent(model=model, logger=logger)
 
-    answer = agent.execute(query)
+        # Register tools
+        agent.register(Name.WIKIPEDIA, wiki_search)
+        agent.register(Name.ADD, add)
+        agent.register(Name.MULTIPLY, multiply)
+        # agent.register(Name.NONE, None, "No action needed.")
+
+        # Execute query
+        answer = agent.execute(query)
+
+def create_queries():
+    queries = []
+    queries.append("What is the capital of France?")
+    queries.append("Calculate 10 + 10")
+    queries.append("Calculate 20 - 10")
+    queries.append("200 * 10")
+    queries.append("100 + -10")
+    queries.append("When was the release of the movie Iron Man?")
+    queries.append("Who is the president of Germany?")
+    queries.append("Who is the president of the United States?")
+    queries.append("When was Python first released? Add 2000 to the release year.")
+    queries.append("In which year was the fall of the Berlin Wall? Then add 10 to the year.")
+    queries.append("In what year was Jonas Vingegaard born? Add the result of 50 + 50 to the year.")
+
+    return queries
 
 
-
-if __name__ == "__main__":    
-    # query = "When was Python first released? Add 2000 to the release year."
-    # query = "What is the capital of France?"
-    # query = "Calculate 10 + 10"
-    # query = "Calculate 20 - 10"
-    # query = "When was the release of the movie Iron Man?"
-    # query = "Who is the president of Germany?"
-    # query = "Who is the president of the United States?"
-    # query = "200 * 10"
-    # query = "100 + -10"
-    query = "In which year was the fall of the Berlin Wall? Then add 10 to the year."
-
-    run(query=query, logger=logger)
+if __name__ == "__main__":
+    queries = create_queries()
+    run(queries=queries, logger=logger)
