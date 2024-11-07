@@ -3,7 +3,6 @@ from typing import Union, Callable, List, Dict
 import json
 import logging
 import regex as re
-
 from pydantic import BaseModel, Field
 
 from llm.llm import LargeLanguageModel
@@ -11,6 +10,17 @@ from utils.logger import logger
 from tools.search import ddgs_search, wiki_search
 from tools.calc import add, multiply
 from utils.io import read_file, write_to_file
+
+import torch
+
+import pudb
+
+# Debugging
+# pudb.set_trace()
+
+# Set GPU device
+torch.cuda.set_device(2)
+
 
 
 model_ids = {
@@ -28,7 +38,7 @@ model_ids = {
 }
 
 # model_id = "Mistral-7B"
-model_id = "Mistral-Nemo"
+model_id = "Mixtral-8x7B"
 
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
 PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
@@ -299,7 +309,6 @@ class ReActAgent:
 def run(query: str, logger: logging.LogRecord) -> str:
     # Load model
     model = LargeLanguageModel(model_ids[model_id])
-
     agent = ReActAgent(model=model, logger=logger)
 
     # register tools
@@ -322,6 +331,6 @@ if __name__ == "__main__":
     # query = "Who is the president of the United States?"
     # query = "200 * 10"
     # query = "100 + -10"
-    query = "In which year was the fall of the Berlin Wall? Add 10 to the year."
+    query = "In which year was the fall of the Berlin Wall? Then add 10 to the year."
 
     run(query=query, logger=logger)

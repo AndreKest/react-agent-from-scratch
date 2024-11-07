@@ -1,6 +1,9 @@
+import os
+import dotenv
+dotenv.load_dotenv("./my-env/.env")
+
 import numpy as np
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
-from langchain_huggingface import HuggingFacePipeline, ChatHuggingFace
 from transformers import BitsAndBytesConfig
 
 model_ids = {
@@ -19,6 +22,9 @@ model_ids = {
 class LargeLanguageModel:
     """ A large language model from the Hugging Face Transformers library. """
     def __init__(self, model_id: str):
+        # Cache dir for Hugging Face Models
+        self.cache_dir = "./hf_cache"
+        
         quant_config = BitsAndBytesConfig(
             load_in_4bit=True,  # Enable 4-bit quantization
             bnb_4bit_compute_dtype='float16',  # Optional: control compute precision, can be float16 or bfloat16
@@ -31,29 +37,23 @@ class LargeLanguageModel:
         self.model_id = model_id
         
         # self.model = AutoModelForCausalLM.from_pretrained(model_id)
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=self.cache_dir)
 
         self.model = AutoModelForCausalLM.from_pretrained(
             model_id,
             quantization_config=quant_config,  # Optional, for quantization
             # load_in_8bit=True,
-            device_map="auto",  # Automatically assign devices (e.g., GPU))  # Optional, for further optimization
+            # device_map="auto",  # Automatically assign devices (e.g., GPU))  # Optional, for further optimization
+            token=os.environ["HF_TOKEN"],
+            cache_dir=self.cache_dir,
         )
 
         self.pipeline = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer, max_new_tokens=200)
 
-        # llm = HuggingFacePipeline(model_id=model_id, pipeline=self.pipeline)
-        # self.model = ChatHuggingFace(llm=llm)
-
     def predict(self, x: str) -> str:
         """ Predict the masked token in the input text. """
-
-        # print(x)
-
+        
         response =  self.pipeline(x)
-        # response = self.model.invoke(x)
-
-        # print(response)
 
         return response
         
