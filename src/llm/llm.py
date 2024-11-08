@@ -24,6 +24,8 @@ model_ids = {
 class LargeLanguageModel:
     """ A large language model from the Hugging Face Transformers library. """
     def __init__(self, model_id: str):
+        self.server = True
+        
         # Cache dir for Hugging Face Models
         self.cache_dir = "./hf_cache"
         
@@ -38,17 +40,13 @@ class LargeLanguageModel:
         """ Initialize the language model. """
         self.model_id = model_id
         
-        # self.model = AutoModelForCausalLM.from_pretrained(model_id)
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=self.cache_dir, token=os.environ["HF_TOKEN"])
-
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_id,
-            quantization_config=quant_config,  # Optional, for quantization
-            # load_in_8bit=True,
-            # device_map="auto",  # Automatically assign devices (e.g., GPU))  # Optional, for further optimization
-            token=os.environ["HF_TOKEN"],
-            cache_dir=self.cache_dir,
-        )
+        if self.server:
+            self.cache_dir = "./hf_cache"
+            self.tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=self.cache_dir)
+            self.model = AutoModelForCausalLM.from_pretrained(model_id,quantization_config=quant_config, token=os.environ["HF_TOKEN"], cache_dir=self.cache_dir)
+        else:
+            self.tokenizer =  AutoTokenizer.from_pretrained(model_id, cache_dir=self.cache_dir)
+            self.model = AutoModelForCausalLM.from_pretrained(model_id,quantization_config=quant_config)
 
         self.model.eval()
 
