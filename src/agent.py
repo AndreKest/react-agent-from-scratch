@@ -25,24 +25,49 @@ torch.cuda.set_device(2)
 model_ids = {
     "Llama3.1:8B": "meta-llama/Llama-3.1-8B-Instruct",          # 8.03 B
     "Llama3.1:70B": "meta-llama/Llama-3.1-70B-Instruct",        # 70.6 B
+    "Llama3.1:405B": "meta-llama/Llama-3.1-405B-Instruct",      # 406 B
     "Llama3.2:1B": "meta-llama/Llama-3.2-1B-Instruct",          # 1.24 B
     "Llama3.2:3B": "meta-llama/Llama-3.2-3B-Instruct",          # 3.21 B
     "Mixtral-8x7B": "mistralai/Mixtral-8x7B-Instruct-v0.1",     # 46.7 B
     "Mixtral-8x22B": "mistralai/Mixtral-8x22B-Instruct-v0.1",   # 141 B
     "Mistral-7B": "mistralai/Mistral-7B-Instruct-v0.3",         # 7.25 B
-    "Mistral-Small": "Mistral-Small-Instruct-2409",             # 22.2 B
-    "Mistral-Large": "Mistral-Large-Instruct-2407",             # 123 B
+    "Mistral-Small": "mistralai/Mistral-Small-Instruct-2409",   # 22.2 B
+    "Mistral-Large": "mistralai/Mistral-Large-Instruct-2407",   # 123 B
     "Mistral-Nemo": "mistralai/Mistral-Nemo-Instruct-2407",     # 12.2 B
-
+    "Microsoft-Phi-3-mini": "microsoft/Phi-3-mini-128k-instruct", # 3.82 B
+    "Microsoft-Phi-3-small": "microsoft/Phi-3-small-128k-instruct", # 7.39 B
+    "Microsoft-Phi-3-medium": "microsoft/Phi-3-medium-128k-instruct", # 14 B
+    "Microsoft-Phi-3.5-mini": "microsoft/Phi-3-mini-128k-instruct", #  3.82 B
+    "Microsoft-Phi-3.5-MoE": "microsoft/Phi-3.5-MoE-instruct", # 41.9 B
 }
 
-model_id = "Mistral-7B"
+# Meta LLama Models
+# model_id = "Llama3.1:8B"
+# model_id = "Llama3.1:70B"
+# model_id = "Llama3.1:405B"
+# model_id = "Llama3.2:1B"
+# model_id = "Llama3.2:3B"
+
+# MistralAI Models
 # model_id = "Mixtral-8x7B"
+# model_id = "Mistral-7B"
+model_id = "Mistral-Small"
+# model_id = "Mistral-Nemo"
+
+# Microsoft Phi Models 
+# model_id = "Microsoft-Phi-3-mini"
+# model_id = "Microsoft-Phi-3-small"
+# model_id = "Microsoft-Phi-3-medium"
+# model_id = "Microsoft-Phi-3.5-mini"
+# model_id = "Microsoft-Phi-3.5-MoE""
+
 
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
 PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
+# TODO: Prompt for Phi models
+# TODO: Context size from messages resize (if to big -> smaller)
+
 OUTPUT_TRACE_PATH = f"./data/output/trace_{model_id}.txt"
-logger = setup_logger(log_filename=f"app_{model_id}.log")
 
 
 Observation = Union[str, Exception]
@@ -82,6 +107,31 @@ class Tool:
         except Exception as e:
             logger.error(f"Error executing {self.name}: {e}")
             return str(e)
+
+def add_parentheses(text):
+    # Find function name and arguments
+    pattern = r"^(\w+)\s(.+)$"
+    # Replace the old structure with the new one ...(...)
+    formatted_text = re.sub(pattern, r"\1(\2)", text)
+    return formatted_text
+
+def remove_double_commas(text):
+    # Ersetzt zwei aufeinanderfolgende Kommata durch ein einzelnes Komma
+    return re.sub(r",{2,}", ",", text)
+
+def format_arguments(text):
+    # Funktion, die das Komma zwischen den Argumenten korrekt einfügt
+    # Schritt 1: Suche nach Funktionsaufrufen, die Argumente enthalten
+    pattern = r"([A-Za-z_]+\([^\)]*)"
+    
+    # Wenn das Format passt, führe Ersetzung durch
+    if re.match(pattern, text):
+        # Entferne alle Leerzeichen zwischen den Argumenten, um Komma zu setzen
+        text = re.sub(r"(\S+=[^,()\s]+)\s+(?=\S+=[^,()\s]+)", r"\1, ", text)
+        text = remove_double_commas(text)
+        return text
+    else:
+        raise ValueError("Action is not in the right format for function calling! Try it AGAIN!")
 
 
 class ReActAgent:
@@ -149,6 +199,9 @@ class ReActAgent:
             # str_finalAnswer = re.search(r"\[Final Answer\](.*)", response).group(1)
             str_finalAnswer = re.search(r"Final Answer(.*)", response).group(1)
 
+            # Delete all special characters till the first letter
+            str_finalAnswer= re.sub(r'^[^a-zA-ZäöüÄÖÜß0-9]*', '', str_finalAnswer)
+
             self.logger.info(f"Final Answer => {str_finalAnswer}")
             self.trace("assistant", f"Final Answer: {str_finalAnswer}")
             self.messages.append(Message(role="assistant", content=f"Final Answer: {str_finalAnswer}"))
@@ -160,6 +213,9 @@ class ReActAgent:
             if "[Thought]" in response or "Thought" in response:
                 # str_thought = re.search(r"\[Thought\](.*)\n", response).group(1)
                 str_thought = re.search(r"Thought(.*)", response).group(1)
+
+                # Delete all special characters till the first letter
+                str_thought = re.sub(r'^[^a-zA-ZäöüÄÖÜß0-9]*', '', str_thought)
             else:
                 # Error No [Thought] found try again TODO
                 self.logger.error("No [Thought] found in response. Try again and take care of the structure.")
@@ -184,6 +240,9 @@ class ReActAgent:
             if "[Action]" in response or "Action" in response:
                 # str_action = re.search(r"\[Action\](.*)", response).group(1)
                 str_action = re.search(r"Action(.*)", response).group(1)
+
+                # Delete all special characters till the first letter
+                str_action = re.sub(r'^[^a-zA-ZäöüÄÖÜß0-9]*', '', str_action)
             else:
                 raise Exception("No [Action] found in response. Try again and add [Action].")
             
@@ -201,6 +260,11 @@ class ReActAgent:
             
             # Remove leading and trailing whitespaces
             str_action = str_action.lstrip().rstrip()
+
+            # Function format checking with regex
+            str_action = add_parentheses(str_action)
+            str_action = format_arguments(str_action)
+            
             # ====================================================================================
 
 
@@ -242,7 +306,7 @@ class ReActAgent:
 
         except Exception as e:
             logger.error(f"Error executing action: {e}")
-            self.trace("assistant", f"I encountered an error that the action could not be executed. Try it again and beware of the response structure: {e}")
+            self.trace("assistant", f"Error - Function could not be executed. Try it again and be aware of the function call structure: {e}")
             
             return 
 
@@ -336,10 +400,13 @@ def create_queries():
     queries.append("When was Python first released? Add 2000 to the release year.")
     queries.append("In which year was the fall of the Berlin Wall? Then add 10 to the year.")
     queries.append("In what year was Jonas Vingegaard born? Add the result of 50 + 50 to the year.")
+    queries.append("Which city has more inhabitants, Paris or Rome?")
 
     return queries
 
 
 if __name__ == "__main__":
     queries = create_queries()
+    logger = setup_logger(log_filename=f"app_{model_id}.log")
+    
     run(queries=queries, logger=logger)

@@ -6,6 +6,8 @@ import numpy as np
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from transformers import BitsAndBytesConfig
 
+import torch
+
 model_ids = {
     "Llama3.1:8B": "meta-llama/Llama-3.1-8B-Instruct",          # 8.03 B
     "Llama3.1:70B": "meta-llama/Llama-3.1-70B-Instruct",        # 70.6 B
@@ -37,7 +39,7 @@ class LargeLanguageModel:
         self.model_id = model_id
         
         # self.model = AutoModelForCausalLM.from_pretrained(model_id)
-        self.tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=self.cache_dir)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=self.cache_dir, token=os.environ["HF_TOKEN"])
 
         self.model = AutoModelForCausalLM.from_pretrained(
             model_id,
@@ -48,12 +50,15 @@ class LargeLanguageModel:
             cache_dir=self.cache_dir,
         )
 
+        self.model.eval()
+
         self.pipeline = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer, max_new_tokens=200)
 
     def predict(self, x: str) -> str:
         """ Predict the masked token in the input text. """
-        
-        response =  self.pipeline(x)
+
+        with torch.no_grad():
+            response =  self.pipeline(x)
 
         return response
         
