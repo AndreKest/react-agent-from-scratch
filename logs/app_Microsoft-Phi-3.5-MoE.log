@@ -1,0 +1,72 @@
+2024-11-08 12:51:18,966 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:18,966 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:18,966 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:51:18,966 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:36,239 [INFO] [agent] [/src/agent.py]: Final Answer => The capital of France is Paris.
+2024-11-08 12:51:36,239 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:36,239 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:36,239 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:36,239 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:51:36,239 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:50,388 [INFO] [agent] [/src/agent.py]: Final Answer => The result of 10 + 10 is 20.
+2024-11-08 12:51:50,388 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:50,388 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:50,388 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:51:50,388 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:51:50,388 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:19,716 [INFO] [agent] [/src/agent.py]: Final Answer => 10
+2024-11-08 12:52:19,717 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:19,717 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:19,717 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:19,717 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:52:19,717 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:35,548 [INFO] [agent] [/src/agent.py]: Final Answer => The result of 200 multiplied by 10 is 2000.
+2024-11-08 12:52:35,548 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:35,548 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:35,548 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:35,548 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:52:35,548 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:48,684 [INFO] [agent] [/src/agent.py]: Final Answer => The result of 100 + -10 is 90.
+2024-11-08 12:52:48,684 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:48,685 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:48,685 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:52:48,685 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:52:48,685 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:05,119 [INFO] [agent] [/src/agent.py]: Final Answer => The movie Iron Man was released on May 2, 2008.
+2024-11-08 12:53:05,119 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:05,119 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:05,119 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:05,119 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:53:05,119 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:18,348 [INFO] [agent] [/src/agent.py]: Final Answer => The president of Germany is Frank-Walter Steinmeier.
+2024-11-08 12:53:18,348 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:18,348 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:18,349 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:18,349 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:53:18,349 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:34,677 [INFO] [agent] [/src/agent.py]: Final Answer => The current president of the United States is Joe Biden.
+2024-11-08 12:53:34,677 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:34,678 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:34,678 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:53:34,678 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:53:34,678 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:04,534 [INFO] [agent] [/src/agent.py]: Final Answer => The year when Python was first released plus 2000 is 3991.
+2024-11-08 12:54:04,535 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:04,535 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:04,535 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:04,535 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:54:04,535 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:28,145 [INFO] [agent] [/src/agent.py]: Final Answer => The year when the fall of the Berlin Wall plus 10 is 1999.
+2024-11-08 12:54:28,146 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:28,146 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:28,146 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:28,146 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:54:28,146 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:55,724 [INFO] [agent] [/src/agent.py]: Final Answer => Jonas Vingegaard would be 2096 years old if we add 100 to his birth year.
+2024-11-08 12:54:55,724 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:55,725 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:55,725 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:54:55,725 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 12:54:55,725 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
+2024-11-08 12:55:21,139 [INFO] [agent] [/src/agent.py]: Final Answer => Rome has more inhabitants than Paris.
+2024-11-08 12:55:21,140 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3.5-MoE.txt
