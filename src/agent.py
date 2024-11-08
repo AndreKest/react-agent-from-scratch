@@ -1,3 +1,6 @@
+# TODO: Context size from messages resize (if to big -> smaller)
+
+# =================================================================================================
 from enum import Enum, auto
 from typing import Union, Callable, List, Dict
 import json
@@ -51,21 +54,20 @@ model_ids = {
 # MistralAI Models
 # model_id = "Mixtral-8x7B"
 # model_id = "Mistral-7B"
-model_id = "Mistral-Small"
+# model_id = "Mistral-Small"
 # model_id = "Mistral-Nemo"
 
 # Microsoft Phi Models 
 # model_id = "Microsoft-Phi-3-mini"
-# model_id = "Microsoft-Phi-3-small"
-# model_id = "Microsoft-Phi-3-medium"
+# model_id = "Microsoft-Phi-3-small"   # just in development version of HF now
+# model_id = "Microsoft-Phi-3-medium"  # just in development version of HF now
 # model_id = "Microsoft-Phi-3.5-mini"
 # model_id = "Microsoft-Phi-3.5-MoE""
 
 
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
-PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
-# TODO: Prompt for Phi models
-# TODO: Context size from messages resize (if to big -> smaller)
+# PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
+PROMPT_TEMPLATE_PATH = "./data/input/prompt_phi.txt"
 
 OUTPUT_TRACE_PATH = f"./data/output/trace_{model_id}.txt"
 

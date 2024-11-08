@@ -1,0 +1,77 @@
+2024-11-08 11:43:56,821 [WARNING] [modeling_phi3] [/home/jovyan/_huggingface-shared/modules/transformers_modules/microsoft/Phi-3-mini-128k-instruct/a90b62ae09941edff87a90ced39ba5807e6b2ade/modeling_phi3.py]: `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2024-11-08 11:43:56,821 [WARNING] [modeling_phi3] [/home/jovyan/_huggingface-shared/modules/transformers_modules/microsoft/Phi-3-mini-128k-instruct/a90b62ae09941edff87a90ced39ba5807e6b2ade/modeling_phi3.py]: Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2024-11-08 11:44:45,178 [WARNING] [modeling_phi3] [/home/jovyan/_huggingface-shared/modules/transformers_modules/microsoft/Phi-3-mini-128k-instruct/a90b62ae09941edff87a90ced39ba5807e6b2ade/modeling_phi3.py]: `flash-attention` package not found, consider installing for better performance: No module named 'flash_attn'.
+2024-11-08 11:44:45,178 [WARNING] [modeling_phi3] [/home/jovyan/_huggingface-shared/modules/transformers_modules/microsoft/Phi-3-mini-128k-instruct/a90b62ae09941edff87a90ced39ba5807e6b2ade/modeling_phi3.py]: Current `flash-attention` does not support `window_size`. Either upgrade or use `attn_implementation='eager'`.
+2024-11-08 11:48:13,283 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:13,283 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:13,283 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:13,283 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:14,608 [WARNING] [logging] [/home/jovyan/.local/lib/python3.10/site-packages/transformers/utils/logging.py]: You are not running the flash-attention implementation, expect numerical differences.
+2024-11-08 11:48:24,219 [INFO] [agent] [/src/agent.py]: Final Answer => The capital of France is Paris.
+2024-11-08 11:48:24,219 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:24,220 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:24,220 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:24,220 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:24,220 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:29,581 [INFO] [agent] [/src/agent.py]: Final Answer => The final answer to the original input question is 20.
+2024-11-08 11:48:29,582 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:29,582 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:29,582 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:29,582 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:29,582 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:33,658 [INFO] [agent] [/src/agent.py]: Final Answer => 10
+2024-11-08 11:48:33,658 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:33,658 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:33,658 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:33,658 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:33,658 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:38,101 [INFO] [agent] [/src/agent.py]: Final Answer => 2000
+2024-11-08 11:48:38,101 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:38,101 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:38,102 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:38,102 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:38,102 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:42,645 [INFO] [agent] [/src/agent.py]: Final Answer => 90
+2024-11-08 11:48:42,645 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:42,645 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:42,645 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:42,645 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:42,645 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:48,675 [INFO] [agent] [/src/agent.py]: Final Answer => The movie Iron Man was released on May 3, 2008.
+2024-11-08 11:48:48,675 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:48,676 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:48,676 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:48,676 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:48,676 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:54,977 [INFO] [agent] [/src/agent.py]: Final Answer => The current president of Germany is Frank-Walter Steinmeier.
+2024-11-08 11:48:54,977 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:54,977 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:54,977 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:48:54,977 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:48:54,977 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:01,546 [INFO] [agent] [/src/agent.py]: Final Answer => Joe Biden is the current president of the United States.
+2024-11-08 11:49:01,547 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:01,547 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:01,547 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:01,547 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:49:01,547 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:08,643 [INFO] [agent] [/src/agent.py]: Final Answer => Python was first released in 2091.
+2024-11-08 11:49:08,644 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:08,644 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:08,644 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:08,644 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:49:08,644 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:16,254 [INFO] [agent] [/src/agent.py]: Final Answer => The year when the fall of the Berlin Wall plus 10 is 2000.
+2024-11-08 11:49:16,254 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:16,254 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:16,254 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:16,254 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:49:16,254 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:27,647 [INFO] [agent] [/src/agent.py]: Final Answer => Jonas Vingegaard was born in 1999, and if you add 50 + 50 to his birth year, you get 2009.
+2024-11-08 11:49:27,648 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:27,648 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:27,648 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:27,648 [INFO] [agent] [/src/agent.py]: Starting iteration 1
+2024-11-08 11:49:27,648 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
+2024-11-08 11:49:34,668 [INFO] [agent] [/src/agent.py]: Final Answer => Rome has more inhabitants than Paris.
+2024-11-08 11:49:34,668 [INFO] [io] [/src/utils/io.py]: Content written to file: ./data/output/trace_Microsoft-Phi-3-mini.txt
