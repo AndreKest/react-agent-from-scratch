@@ -61,8 +61,8 @@ model_ids = {
 # model_id = "Microsoft-Phi-3-mini"
 # model_id = "Microsoft-Phi-3-small"   # just in development version of HF now
 # model_id = "Microsoft-Phi-3-medium"  # just in development version of HF now
-model_id = "Microsoft-Phi-3.5-mini"
-# model_id = "Microsoft-Phi-3.5-MoE""
+# model_id = "Microsoft-Phi-3.5-mini"
+model_id = "Microsoft-Phi-3.5-MoE"
 
 
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
