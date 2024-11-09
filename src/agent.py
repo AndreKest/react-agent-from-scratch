@@ -67,7 +67,7 @@ model_id = "Microsoft-Phi-3.5-MoE"
 
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
-PROMPT_TEMPLATE_PATH = "./data/input/prompt_phi.txt"
+PROMPT_TEMPLATE_PATH = "./data/input/prompt_phi_test.txt"
 
 OUTPUT_TRACE_PATH = f"./data/output/trace_{model_id}.txt"
 
@@ -403,6 +403,14 @@ def create_queries():
     queries.append("In which year was the fall of the Berlin Wall? Then add 10 to the year.")
     queries.append("In what year was Jonas Vingegaard born? Add the result of 50 + 50 to the year.")
     queries.append("Which city has more inhabitants, Paris or Rome?")
+    queries.append("What is the date of today?")
+    queries.append("Calculate 100 ** 100")
+    queries.append("Calculate 4.1 ** 2")
+    queries.append("Calculate 4.1 ** 2.123")
+    queries.append("Calculate ln(e) * 50")
+    queries.append("Calculate 5.5 * 2.5")
+    queries.append("What is the square root of 16?")
+    
 
     return queries
 
