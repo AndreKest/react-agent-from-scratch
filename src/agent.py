@@ -409,7 +409,13 @@ def create_queries():
     queries.append("Calculate 4.1 ** 2.123")
     queries.append("Calculate ln(e) * 50")
     queries.append("Calculate 5.5 * 2.5")
-    queries.append("What is the square root of 16?")
+    queries.append("50986 * 113")
+    queries.append("50986 + 1012414")
+    queries.append("Who won Tour the France in 2024?")
+    queries.append("Who won the presidential election in the United States in 2024?")
+    queries.append("Which element has the atomic number 50?")
+    queries.append("Which element from the periodic table weighs more, gold or silver?")
+    queries.append("Give me the atomic mass, atomic number the element symbol for carbon and calcium?")
     
 
     return queries
