@@ -98,8 +98,27 @@ Here is a list of functions in JSON format that you can invoke.
                 },
             }
         }
+    },
+    {
+        "name": "exponentiation",
+        "description": "Calculates x to the power of b (Exponentialfunction),
+        "parameters": {
+            "type": "integers",
+            "required": [
+                "x", "y"
+            ],
+            "properties": {
+                "x": {
+                    "type": "integers",
+                    "description": "The basis of the calculation"
+                },
+                "y": {
+                    "type": "integers",
+                    "description": "the exponent of the calculation"
+                },
+            }
+        }
     }
-
 ]<|eot_id|><|start_header_id|>user<|end_header_id|>
 
 The History is everything you need as information. It contains the initial query and all generated informations (Observations, Actions and Errors)

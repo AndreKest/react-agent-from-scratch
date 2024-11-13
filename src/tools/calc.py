@@ -17,3 +17,8 @@ def subtract(x: int, y:int, logger: logging.LogRecord) -> int:
     """ Subtract from the number x the number y. """
     logger.info(f"Subtracting {y} from {x}")
     return x - y
+
+def exponentiation(x: int, y: int):
+    """ Calculate a to the power of b """
+    logger.info(f"Exponentiate {x}**{y}")
+    return x ** y

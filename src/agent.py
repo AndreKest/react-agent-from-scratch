@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 from llm.llm import LargeLanguageModel
 from utils.logger import setup_logger
 from tools.search import ddgs_search, wiki_search
-from tools.calc import add, multiply
+from tools.calc import add, multiply, exponentiation
 from utils.io import read_file, write_to_file
 
 import torch
@@ -46,7 +46,7 @@ model_ids = {
 
 # Meta LLama Models
 # model_id = "Llama3.1:8B"
-# model_id = "Llama3.1:70B"
+model_id = "Llama3.1:70B"
 # model_id = "Llama3.1:405B"
 # model_id = "Llama3.2:1B"
 # model_id = "Llama3.2:3B"
@@ -62,12 +62,12 @@ model_ids = {
 # model_id = "Microsoft-Phi-3-small"   # just in development version of HF now
 # model_id = "Microsoft-Phi-3-medium"  # just in development version of HF now
 # model_id = "Microsoft-Phi-3.5-mini"
-model_id = "Microsoft-Phi-3.5-MoE"
+# model_id = "Microsoft-Phi-3.5-MoE"
 
 
-# PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
+PROMPT_TEMPLATE_PATH = "./data/input/prompt_llama.txt"
 # PROMPT_TEMPLATE_PATH = "./data/input/prompt_mistral.txt"
-PROMPT_TEMPLATE_PATH = "./data/input/prompt_phi_test.txt"
+# PROMPT_TEMPLATE_PATH = "./data/input/prompt_phi_test.txt"
 
 OUTPUT_TRACE_PATH = f"./data/output/trace_{model_id}.txt"
 
@@ -80,6 +80,7 @@ class Name(Enum):
     DUCKDUCKGO = auto()
     ADD = auto()
     MULTIPLY = auto()
+    EXPONENTIATION = auto()
     NONE = auto()
 
     def __str__(self) -> str:
@@ -384,6 +385,7 @@ def run(queries: [str], logger: logging.LogRecord) -> str:
         agent.register(Name.WIKIPEDIA, wiki_search)
         agent.register(Name.ADD, add)
         agent.register(Name.MULTIPLY, multiply)
+        agent.register(Name.EXPONENTIATION, exponentiation)
         # agent.register(Name.NONE, None, "No action needed.")
 
         # Execute query
@@ -402,10 +404,11 @@ def create_queries():
     queries.append("When was Python first released? Add 2000 to the release year.")
     queries.append("In which year was the fall of the Berlin Wall? Then add 10 to the year.")
     queries.append("In what year was Jonas Vingegaard born? Add the result of 50 + 50 to the year.")
-    queries.append("Which city has more inhabitants, Paris or Rome?")
+    # queries.append("Which city has more inhabitants, Paris or Rome?")
     queries.append("What is the date of today?")
     queries.append("Calculate 100 ** 100")
     queries.append("Calculate 4.1 ** 2")
+    queries.append("Calculate the third root from 8756")
     queries.append("Calculate 4.1 ** 2.123")
     queries.append("Calculate ln(e) * 50")
     queries.append("Calculate 5.5 * 2.5")
